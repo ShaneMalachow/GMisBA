@@ -1,6 +1,11 @@
 // Your code goes here
 
-var vinElem = document.getElementById('vin');
-gm.info.getVehicleConfiguration(function(data) {
-  vinElem.innerHTML = gm.info.getVIN();
-});
+function showPos(position) {
+    var p = document.getElementById("test");
+    if (position.coords !== undefined) {
+        p.innerHTML = position.coords.longitude + " " + position.coords.latitude
+    }
+}
+
+gm.info.getCurrentPosition(showPos);
+gm.info.watchPosition(showPos);
