@@ -30,23 +30,40 @@
     <div id="main">
 
         <div id="map"></div>
-        <p id="coords"></p>
-        <script>
-            function myMap() {
-                var mapOptions = {
-                    center: new google.maps.LatLng(40.4406, 79.9959),
-                    zoom: 10,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                map = new google.maps.Map(document.getElementById("map"), mapOptions);
-            }
-        </script>
+        <div id="list-container">
+        <ul id="restaurants">
+        </ul></div>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkgq6skqj_3s0ME2aQHUmq6N_EJ4iADKs&callback=myMap"></script>
     </div>
 </div>
 
-<!-- Your app code: -->
+<script>
+    var map;
+    var latitude = 40.4406;
+    var longitude = 79.9959;
+    var foodMarkers = [];
+    var restaurants = [];
+    var currentRest = 0;
+
+
+    function myMap() {
+        console.log(longitude + " " + latitude);
+        var mapOptions = {
+            center: {lat: latitude, lng: longitude},
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        currentMarker = new google.maps.Marker({
+            position: {lat: latitude, lng: longitude},
+            map: map
+        });
+    }
+</script>
+
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkgq6skqj_3s0ME2aQHUmq6N_EJ4iADKs&callback=myMap"></script>
 <script src="js/app.js"></script>
+
 </body>
 </html>
