@@ -21,3 +21,8 @@
     top: 104px;
   }
 }
+
+#map {
+  width: 800px;
+  height: 300px;
+}

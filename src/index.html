@@ -29,26 +29,20 @@
     <div id="close"><img src="images/close.png" onclick="gm.system.closeApp()" alt="close"></div>
     <div id="main">
 
-        <!-- Remove all code inside #main and add your own! -->
-        <h1>Hello World</h1>
-        <p>HELLO</p>
-        <p id="test"></p>
-        <div id="map" style="width:400px;height:300px;background:whitesmoke"></div>
-
+        <div id="map"></div>
+        <p id="coords"></p>
         <script>
             function myMap() {
                 var mapOptions = {
-                    center: new google.maps.LatLng(40.79, -77.85),
+                    center: new google.maps.LatLng(40.4406, 79.9959),
                     zoom: 10,
-                    mapTypeId: google.maps.MapTypeId.HYBRID
-                }
-                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById("map"), mapOptions);
             }
         </script>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkgq6skqj_3s0ME2aQHUmq6N_EJ4iADKs&callback=myMap"></script>
-        
-
     </div>
 </div>
 

@@ -1,11 +1,22 @@
 // Your code goes here
 
-function showPos(position) {
-    var p = document.getElementById("test");
-    if (position.coords !== undefined) {
-        p.innerHTML = position.coords.longitude + " " + position.coords.latitude
+var latitude;
+var longitude;
+
+function setCoord(pos) {
+    if (pos.coords !== undefined) {
+        latitude = pos.coords.latitude;
+        longitude = pos.coords.longitude;
+
+        // var mapOptions = {
+        //     center: new google.maps.LatLng(latitude, longitude),
+        //     zoom: 10,
+        //     mapTypeId: google.maps.MapTypeId.ROADMAP
+        // };
+        document.getElementById("coords").innerHTML = latitude + " " + longitude;
+        // map = new google.maps.Map(document.getElementById("map"), mapOptions);
     }
 }
 
-gm.info.getCurrentPosition(showPos);
-gm.info.watchPosition(showPos);
+gm.info.getCurrentPosition(setCoord, null, true);
+gm.info.watchPosition(setCoord, null, true);
