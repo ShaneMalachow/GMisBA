@@ -30,6 +30,7 @@ function setCoord(pos) {
                 foodMarkers.push(marker);
                 var li = document.createElement("li");
                 li.innerHTML = place["name"] + "<br>" + place["vicinity"];
+                li.addEventListener("click", navigate);
                 list.appendChild(li);
             }
         }
@@ -37,12 +38,14 @@ function setCoord(pos) {
     }
 }
 
-function navigate() {
+
+function navigate(event) {
+    var vicinity = event.currentTarget.innerHTML.split("<br>")[1];
     gm.nav.setDestination(function () {
         console.log("Success")
     }, function () {
         console.log("Error")
-    }, {address: restaurants[currentRest]["vicinity"]}, true)
+    }, {address: vicinity}, true)
 }
 
 gm.info.getCurrentPosition(setCoord, null, true);

@@ -28,11 +28,11 @@
 <div id="wrapper">
     <div id="close"><img src="images/close.png" onclick="gm.system.closeApp()" alt="close"></div>
     <div id="main">
-
-        <div id="map"></div>
+    <div id="map-container">
+        <div id="map"></div></div>
         <div id="list-container">
-        <ul id="restaurants">
-        </ul></div>
+            <ul id="restaurants"></ul>
+        </div>
 
     </div>
 </div>
@@ -50,11 +50,11 @@
         console.log(longitude + " " + latitude);
         var mapOptions = {
             center: {lat: latitude, lng: longitude},
-            zoom: 15,
+            zoom: 14,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        currentMarker = new google.maps.Marker({
+        var currentMarker = new google.maps.Marker({
             position: {lat: latitude, lng: longitude},
             map: map
         });
